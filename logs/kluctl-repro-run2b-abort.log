@@ -1,0 +1,38 @@
+Failed to detect git project root. This might cause follow-up errors
+Initializing k8s client
+Rendering templates
+Rendering Helm Charts
+Building kustomize objects
+Postprocessing objects
+Writing rendered objects
+No discriminator configured. Orphan object detection will not work
+No discriminator configured for target, retrieval of remote objects will be slow.
+Getting 4 additional remote objects
+Getting namespaces
+manifests-ns: Initializing
+manifests-main: Initializing
+manifests-ns: Applying 1 objects
+manifests-main: Deleting 2 hooks before hook execution
+manifests-main: Deleting hook kluctl-repro/Job/hook-hang due to hook-delete-policy before-hook-creation (1 of 2)
+manifests-main: Deleting hook kluctl-repro/Job/hook-fast due to hook-delete-policy before-hook-creation (2 of 2)
+manifests-main: Applying 2 hooks
+manifests-main: Applying hook kluctl-repro/Job/hook-hang (1 of 2)
+manifests-main: Waiting for kluctl-repro/Job/hook-hang to get ready... (0s elapsed)
+manifests-main: Still waiting for kluctl-repro/Job/hook-hang to get ready... (10s elapsed)
+timed out while waiting for readiness of kluctl-repro/Job/hook-hang (14s elapsed)
+manifests-main: Applying hook kluctl-repro/Job/hook-fast (2 of 2)
+manifests-main: Waiting for kluctl-repro/Job/hook-fast to get ready... (0s elapsed)
+manifests-main: Finished waiting for kluctl-repro/Job/hook-fast (3s elapsed)
+manifests-main: Applying 1 objects
+Writing command result
+
+Applied hooks:
+  kluctl-repro/Job/hook-hang
+  kluctl-repro/Job/hook-fast
+
+Warnings:
+  no discriminator configured. Orphan object detection will not work
+
+Errors:
+  kluctl-repro/Job/hook-hang: timed out while waiting for readiness of kluctl-repro/Job/hook-hang
+command failed

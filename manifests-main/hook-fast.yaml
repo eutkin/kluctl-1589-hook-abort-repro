@@ -1,0 +1,20 @@
+# Hook 2: завершается мгновенно. По семантике --abort-on-error НЕ должен
+# применяться после аборта на hook-hang; по факту применяется (баг).
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hook-fast
+  namespace: kluctl-repro
+  annotations:
+    kluctl.io/hook: pre-deploy
+    kluctl.io/hook-weight: "2"
+    kluctl.io/hook-timeout: "30s"
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: echo
+          image: registry.k8s.io/busybox:1.27.2
+          command: ["sh", "-c", "echo ok"]

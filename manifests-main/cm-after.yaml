@@ -1,0 +1,11 @@
+# Обычный (не hook) объект того же item'а. Контрольная: с --abort-on-error
+# apply-цикл останавливается по abortSignal (apply_utils.go:706-708) — CM не
+# должен примениться; демонстрирует контраст с hook-циклом (hooks_util.go),
+# который abortSignal внутри цикла не проверяет.
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cm-after
+  namespace: kluctl-repro
+data:
+  applied: "should-not-happen-after-abort"
